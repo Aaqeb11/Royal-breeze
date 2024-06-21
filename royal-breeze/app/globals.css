@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.info-cards-content {
+  margin: 64px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.info-cards {
+  height: auto;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  background: linear-gradient(to right, #0a192f, #112d4e);
+  position: relative;
+}
+.info-card-title {
+  margin: 32px 0 40px 0;
+  color: #e0e0e0;
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+}
+.info-card-description {
+  margin: 24px;
+  color: #e0e0e0;
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5rem;
+}
+.info-card-icon {
+  position: absolute;
+  top: -24px;
+  left: 44%;
+  padding: 10px;
+  background: #000000;
+  border-radius: 30px;
+}
+.info-fa-icon {
+  color: #2c96ff;
+  font-size: 24px;
+}
+.form-container {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background: linear-gradient(
+    to right,
+    #0a192f,
+    #112d4e
+  ); /* Lighter and more neutral background */
+}
+
+.form-title {
+  font-family: "Helvetica Neue", Arial, sans-serif; /* More universal font */
+  font-size: 28px; /* Slightly smaller for a more modern look */
+  font-weight: bold;
+  color: #e0e0e0; /* Darker color for better readability */
+}
+
+.form-title > span {
+  position: relative;
+}
+
+.form-title span::before {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 2px; /* Thinner line for a subtler effect */
+  background-color: #007bff; /* Adjusted to a more standard blue */
+  border-radius: 2px; /* Less rounded */
+  left: 0;
+  bottom: -10px; /* Adjusted spacing */
+}
+
+/* Form */
+.form-content label {
+  margin: 0 0 12px 0; /* Less space for a tighter form */
+  display: block;
+  font-family: "Arial", sans-serif; /* More universal font */
+  font-size: 20px; /* Slightly reduced for a cleaner look */
+  letter-spacing: normal; /* Removed custom letter-spacing for better readability */
+  color: #e0e0e0; /* Darker for better contrast */
+}
+
+.form-content label::before {
+  content: "-";
+  color: #ff0000; /* Brighter red for better visibility */
+  padding: 0 4px 0 0;
+}
+
+.form-content label :is(input, select) {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px 12px; /* Adjusted padding for better text visibility */
+  display: block;
+  height: auto; /* Auto height for better flexibility */
+  color: #333; /* Darker text for better readability */
+  border: 1px solid #ccc; /* More neutral border color */
+  border-radius: 4px; /* Less rounded for a modern look */
+  background-color: #fff; /* White background for inputs */
+  outline: none; /* Removed outline for cleaner focus state, consider adding back for accessibility */
+  font-family: "Arial", sans-serif;
+  font-size: 16px; /* Adjusted for consistency */
+}
+
+/* Success Message */
+.success-message {
+  margin: 20px 0 0 0;
+  color: #28a745; /* Adjusted to a more standard green */
+  font-family: "Arial", sans-serif;
+  font-size: 20px; /* Slightly reduced for consistency */
+  line-height: 1.5rem; /* Adjusted for better readability */
+}
+
+/* Error Message */
+.error-message {
+  color: #dc3545; /* Adjusted to a more standard red */
+  font-family: "Arial", sans-serif;
+  font-size: 14px; /* Slightly reduced for distinction */
+  line-height: 1.5rem; /* Adjusted for better readability */
+}
+.text-appointment-btn {
+  padding: 14px 20px;
+  color: #0a192f;
+  border: 1px solid #1a8efd;
+  border-radius: 28px;
+  outline: transparent;
+  background-color: #1a8efd;
+  font-size: 18px;
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.text-appointment-btn:hover {
+  color: #1a8efd;
+  background-color: transparent;
+  border: 1px solid #1a8efd;
+}
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .form-container {
+    padding: 24px;
+  }
+  .form-title {
+    font-size: 24px;
+  }
+  .form-content label {
+    font-size: 18px;
+  }
+  .form-content label :is(input, select) {
+    font-size: 14px;
+  }
+  .success-message {
+    margin: 12px 0 0 0;
+    font-size: 18px;
+  }
+}
