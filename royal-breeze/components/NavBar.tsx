@@ -7,9 +7,12 @@ import { RxCross1 } from "react-icons/rx";
 import { ImCross } from "react-icons/im";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { CiMenuBurger } from "react-icons/ci";
-export const NavBar = () => {
+interface NavBarProps {
+  // Define your props here, for example:
+  route?: string;
+}
+export const NavBar:React.FC<NavBarProps> = ({route}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -64,31 +67,31 @@ export const NavBar = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="#photos"
                 className="block py-2 px-3 text-black rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-950 md:p-0  md:text-black hover:bg-gray-700 hover:text-white md:dark:hover:bg-transparent"
               >
-                About
+                Photos
               </a>
             </li>
             <li>
               <a
-                href="#"
+                href="#payment"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-950 md:p-0 text-black hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
               >
-                Services
+                Payment
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="#"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-950 md:p-0 text-black  hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
               >
                 Pricing
               </a>
-            </li>
+            </li> */}
             <li>
               <a
-                href="#"
+                href="#form"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-950 md:p-0 text-black hover:bg-gray-700 hover:text-white md:hover:bg-transparent"
               >
                 Contact
