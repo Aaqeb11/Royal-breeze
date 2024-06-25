@@ -115,7 +115,7 @@ function AppointmentForm() {
             )}
           </label>
           <br />
-          <button type="submit" className="text-appointment-btn">
+          <button type="submit" className="text-appointment-btn animate-pulse">
             Confirm Submission
           </button>
           <p

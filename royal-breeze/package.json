@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/react-fontawesome": "fortawesome/react-fontawesome",
+    "@uidotdev/usehooks": "^2.4.1",
     "emailjs": "^4.0.3",
     "emailjs-com": "^3.2.0",
     "flowbite": "^2.3.0",
