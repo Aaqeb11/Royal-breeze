@@ -3,7 +3,9 @@ import React from "react";
 const PaymentMethod = () => {
   return (
     <div className="text-center font-sans text-gray-800 p-8" id="payment">
-      <h1 className="text-2xl font-bold mb-4">PAYMENT METHOD</h1>
+      <h1 className="text-2xl font-bold mb-4">Starting at</h1>
+      <h1 className="text-4xl font-bold mb-6">$275,000</h1>
+      <h1 className="text-2xl font-bold mb-4">Payment Method</h1>
       <div className="flex flex-col items-center mt-6">
         <div className="mb-2">
           <p className="font-medium">Reservation</p>

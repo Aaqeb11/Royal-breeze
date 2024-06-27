@@ -6,7 +6,9 @@ export const Data = [
   {
     img: activity1,
     title: "Bavaro beach",
-    info: "Relax on the spotlessly white sand and swim in the clear waters of Bavaro Beach in Punta Cana, a popular resort town where you can enjoy refreshing cocktails and taste the mouth-watering Dominica cuisine",
+    info: "Relax on the spotlessly white sand and swim in the clear waters of Bavaro Beach in Punta Cana",
+    readmore:
+      "A popular resort town where you can enjoy refreshing cocktails and taste the mouth-watering Dominica cuisine",
   },
   {
     img: activity2,
@@ -18,11 +20,15 @@ export const Data = [
   {
     img: activity3,
     title: "Sirenis Aquagames Punta Cana",
-    info: "Do not miss the newest attraction on the Island!Within the hotel property, you’ll find the brand new Sirenis Aquagames, the only water park in the Punta Cana area. It is now definitely a must do",
+    info: "Do not miss the newest attraction on the Island!",
+    readmore:
+      "Within the hotel property, you’ll find the brand new Sirenis Aquagames, the only water park in the Punta Cana area. It is now definitely a must do",
   },
   {
     img: activity4,
     title: "Hoyo Azul ",
-    info: "Located in Scape Park, Cap Cana. After passing an interesting trail where you will find some of the most peculiar flora and fauna in the Caribbean, you will relish the  spectacular lagoon at it's immense beauty",
+    info: "Located in Scape Park, Cap Cana",
+    readmore:
+      "After passing an interesting trail where you will find some of the most peculiar flora and fauna in the Caribbean, you will relish the  spectacular lagoon at it's immense beauty",
   },
 ];

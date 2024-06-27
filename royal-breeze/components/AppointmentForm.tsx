@@ -13,6 +13,9 @@ function AppointmentForm() {
   const [emailState, setEmail] = useState<string>("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
+  const template = process.env.NEXT_PUBLIC_TEMPLATE;
+  const service = process.env.NEXT_PUBLIC_SERVICE;
+  const key = process.env.NEXT_PUBLIC_KEY;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -47,28 +50,21 @@ function AppointmentForm() {
       email: emailState,
     };
 
-    emailjs
-      .send(
-        "service_rrng3tl",
-        "template_qwzjbbt",
-        templateParams,
-        "I9deinT_clfaCHrZT"
-      )
-      .then(
-        (response: any) => {
-          console.log("SUCCESS!", response.status, response.text);
-          setName("");
-          setNumber("");
-          setEmail("");
-          setFormErrors({});
-          setIsSubmitted(true);
-          toast.success("Form Submitted Successfully!");
-        },
-        (err: any) => {
-          console.log("FAILED...", err);
-          toast.error("Form Submission Failed!");
-        }
-      );
+    emailjs.send(service ?? "", template ?? "", templateParams, key).then(
+      (response: any) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setName("");
+        setNumber("");
+        setEmail("");
+        setFormErrors({});
+        setIsSubmitted(true);
+        toast.success("Form Submitted Successfully!");
+      },
+      (err: any) => {
+        console.log("FAILED...", err);
+        toast.error("Form Submission Failed!");
+      }
+    );
   };
 
   return (
