@@ -14,6 +14,7 @@ function InformationCard(props: any) {
         <p className="text-white leading-10 text-center md:text-3xl text-2xl p-3">
           {props.title}
         </p>
+        <div className="flex mt-8 lg:mt-2 lg:block border-b-[1.1px] border-white w-[90%] mx-auto lg:w-[90%]  h-1 "></div>
         <p className="text-white leading-9 text-center md:text-xl text-lg mt-5 p-3">
           {props.description}
         </p>

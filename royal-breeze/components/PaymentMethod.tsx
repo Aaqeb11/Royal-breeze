@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const PaymentMethod = () => {
   return (
@@ -27,7 +27,10 @@ const PaymentMethod = () => {
       </div>
       <div className="mt-6 text-sm text-gray-600">
         <p>Kitchen equipment, air conditioners, and picuzzi included.</p>
-        <p className="mt-2">The furnishings presented in the previous images are a representation of how to adapt the spaces and are not included with the house.</p>
+        <p className="mt-2">
+          The furnishings presented in the previous images are a representation
+          of how to adapt the spaces and are not included with the house.
+        </p>
       </div>
     </div>
   );

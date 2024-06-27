@@ -2,6 +2,9 @@
 import React from "react";
 import { NavBar } from "@/components/NavBar";
 import { useState, useEffect } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import DP from "../assets/DP.jpeg";
 import img1 from "../assets/img1.jpeg";
 import img2 from "../assets/img2.jpeg";
@@ -14,7 +17,10 @@ import image8 from "../assets/image8.jpeg";
 import image9 from "../assets/image9.jpeg";
 import image10 from "../assets/image10.jpeg";
 import image11 from "../assets/image11.jpeg";
+import floorPlan1 from "../assets/floorPlan1.jpeg";
+import floorPlan2 from "../assets/floorPlan2.jpeg";
 import FamiliaCosta from "../assets/FamiliaCosta.jpeg";
+import { Data } from "@/public/Data";
 import Image from "next/image";
 import InformationCard from "@/components/InformationCard";
 import { FaBuilding } from "react-icons/fa";
@@ -27,9 +33,10 @@ import PaymentMethod from "@/components/PaymentMethod";
 import Link from "next/link";
 const page = () => {
   const router = useRouter();
-  const imageSlideShow1 = [img1, img2, img3, img4];
+  const imageSlideShow1 = [img1, img2, img3, img4, floorPlan2, floorPlan1];
   const imageSlideShow2 = [image6, image7, image8];
   const imageSlideShow3 = [image9, image10, image11];
+  const [readMore, setReadMore] = useState(false);
   const [currentImageIndex1, setCurrentImageIndex1] = useState(0);
   const [currentImageIndex2, setCurrentImageIndex2] = useState(0);
   const [currentImageIndex3, setCurrentImageIndex3] = useState(0);
@@ -72,6 +79,14 @@ const page = () => {
     }, 4000); // Change image every 4 seconds
     return () => clearInterval(intervalId); // Clean up on component unmount
   }, []);
+
+  var settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <div className="flex flex-col ">
       <div
@@ -79,27 +94,28 @@ const page = () => {
           background:
             "linear-gradient(132deg, rgba(2,0,36,1) 0%, rgba(3,20,62,1) 0%, rgba(5,68,80,1) 100%)",
         }}
-        className="flex lg:items-center items-start justify-start lgl:mt-[90px] h-screen  flex-col  gap-2 p-2"
+        className="flex lg:items-center items-start justify-start lg:mt-[90px] h-screen  flex-col  gap-2 p-2"
       >
         <p className="lg:text-4xl md:text-5xl text-5xl leading-snug text-white font-serif md:p-10 p-4 lg:text-center">
           Discover Royal Breeze Caribbean Villas
         </p>
-        <div className="flex items-start  md:hidden">
+        <div className="flex mt-8 lg:mt-2 lg:block border-b-2 border-white w-[90%] mx-auto lg:w-[90%]  h-1 "></div>
+        <div className="flex items-start ">
           <p className="text-white text-lg p-4">
-            Invest in luxury from the ground up with our limited collection of 3
+            Invest in luxury from the ground up with our collection of 3
             exclusive villas in
             <span className="italic font-semibold"> Punta Cana.</span>
           </p>
         </div>
 
-        <div className="flex justify-center items-center mx-auto lg:w-[68vw] w-[90vw] md:w-[80]  h-[30vh] md:h-[55vh] lg:h-[90vh] overflow-hidden ">
+        <div className="flex justify-center items-center mx-auto lg:w-[56vw] w-[90vw] md:w-[80]  h-[35vh] md:h-[55vh] lg:h-[90vh] overflow-hidden rounded-xl">
           <video
             controls
             autoPlay
             muted
             loop
             playsInline
-            className="object-cover  h-full  w-full md:py-4 py-4 rounded-xl "
+            className="object-cover  h-full w-full   py-4 rounded-xl "
           >
             <source src="/VIDEO_15.mp4" type="video/mp4" />
           </video>
@@ -162,7 +178,7 @@ const page = () => {
         >
           <div className="flex flex-col lg:w-1/2 justify-center">
             <p className="text-white md:text-2xl p-4 leading-loose font-serif text-lg hidden md:block">
-              An Exclusive Investment Opportunity Invest in luxury with our
+              An exclusive investment opportunity invest in luxury with our
               limited collection of 3 high-end villas in
               <span className="italic font-semibold"> Punta Cana.</span>
             </p>
@@ -179,7 +195,7 @@ const page = () => {
                   router.push("#form");
                 }}
               >
-                Fill Form
+                Register Now
               </button>
             </div>
           </div>
@@ -252,7 +268,7 @@ const page = () => {
         >
           <div className="flex flex-col lg:w-1/2 justify-center">
             <p className="text-white md:text-2xl p-4 leading-loose font-serif text-lg">
-              Luxurious Villa near the Heart of the City, Enjoy a unique
+              Luxurious Villa near the heart of the city. Enjoy a unique
               experience 5 minutes from Downtown and 15 minutes from the
               airport. Great for groups and families looking for comfort and
               elegance.
@@ -264,7 +280,7 @@ const page = () => {
                 rel="noopener noreferrer"
                 className="bg-[#1a8efd] text-[#0a192f] rounded-3xl px-14 py-2 text-xl border-[1px] border-[#1a8efd] hover:text-[#1a8efd] hover:bg-transparent hover:border-[1px] hover:border-[#1a8efd] animate-pulse"
               >
-                Book AirBnb
+                View More
               </Link>
             </div>
           </div>
@@ -300,11 +316,56 @@ const page = () => {
             ))}
           </div>
         </section>
-        <section className="flex flex-col justify-center items-center gap-4 lg:gap-10 p-4 lg:mt-10 mt-6">
+        <section
+          className=" slide-container "
+          style={{
+            background:
+              "linear-gradient(132deg, rgba(2,0,36,1) 0%, rgba(3,20,62,1) 0%, rgba(5,68,80,1) 100%)",
+          }}
+        >
+          <div className="lg:w-1/2 w-3/4  mx-auto">
+            <Slider {...settings}>
+              {Data.map((data, index) => (
+                <div key={index} className=" p-6 gap-10 mt-10">
+                  <div className="flex items-center justify-center ">
+                    <Image
+                      src={data.img}
+                      width={500}
+                      height={500}
+                      alt={"acitivity1"}
+                      className="w-full rounded-lg"
+                      quality={100}
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center items-center gap-10">
+                    <p className="lg:text-3xl sm:text-sm  mt-6 text-white">
+                      {data.title}
+                    </p>
+                    <p className="text-xl text-center text-white">
+                      {data.info}
+                    </p>
+                    <p className="text-xl text-center text-white">
+                      {readMore ? data.readmore : ""}
+                    </p>
+                    <button
+                      className="bg-white text-black"
+                      onClick={() => {
+                        setReadMore(!readMore);
+                      }}
+                    >
+                      read more
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        </section>
+        <section className="flex flex-col justify-center items-center gap-4 lg:gap-10 p-4  mt-6">
           <PaymentMethod />
           <div
-            className="w-full relative h-[50vh] md:h-[70vh] overflow-hidden"
-            id="photos "
+            className="w-full relative h-[50vh] md:h-[58vh] lg:h-[95vh] lg:w-[70vw] overflow-hidden"
+            id="photos"
           >
             {imageSlideShow1.map((image, index) => (
               <div
@@ -337,23 +398,12 @@ const page = () => {
               </div>
             ))}
           </div>
-          {/* <div className="flex justify-center items-center w-full">
-            <p className="md:text-4xl text-3xl text-blue-950 font-serif">
-              Familia Acosta
-            </p>
-          </div>
-          <div className="flex justify-center items-center w-full">
-            <p className="md:text-xl text-lg text-blue-950 font-serif">
-              From the iconic Chicago skyline to the beautiful beaches of Punta
-              Cana. Live the experience of investing whith Royal Breeze
-            </p>
-          </div> */}
           <div className="flex justify-center">
             <Image
               src={FamiliaCosta}
               alt={"famil"}
               quality={100}
-              className="lg:w-[60vw] w-[100vw] "
+              className="lg:w-[70vw] w-[100vw] "
             />
           </div>
           <div className="w-full pt-5" id="form">
