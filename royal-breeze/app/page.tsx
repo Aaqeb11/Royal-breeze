@@ -115,15 +115,17 @@ const page = () => {
             muted
             loop
             playsInline
-            className="  h-full w-full   py-4 rounded-xl "
+            className=" h-full w-full   py-4 rounded-xl "
           >
             <source src="/VIDEO_15.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
       <section className="">
-        <section className="relative w-full h-screen overflow-hidden bg-white">
-          <div className="absolute inset-0 opacity-55">
+        <section className="relative w-full md:h-screen h-full overflow-hidden bg-white">
+          <div className="absolute inset-0">
+            {/* New overlay div */}
+            <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
             <div className="absolute top-0 left-0 w-full h-full">
               {imageSlideShow3.map((image, index) => (
                 <div
@@ -149,24 +151,24 @@ const page = () => {
                     src={image}
                     alt={`Slide ${index + 1}`}
                     fill
-                    className="object-cover  h-screen w-screen"
+                    className=" h-screen w-screen"
                     quality={100}
                   />
                 </div>
               ))}
             </div>
           </div>
-          <div className="relative z-10 flex flex-col justify-center items-center h-full p-4 lg:p-8">
+          <div className="relative z-20 flex flex-col justify-center items-center h-full p-4 lg:p-8">
             <div className="max-w-6xl mx-auto text-center">
-              <h3 className="text-blue-900 md:text-4xl leading-loose font-serif text-2xl font-semibold lg:font-medium lg:mb-20 mb-16">
+              <h3 className="text-white md:text-4xl leading-loose font-serif text-2xl font-medium lg:font-medium lg:mb-20 mb-16">
                 Discover the allure of Punta Cana!
               </h3>
-              <p className="text-blue-900 md:text-2xl leading-loose font-serif text-lg font-semibold lg:font-semibold mb-6">
+              <p className="text-white md:text-2xl leading-loose font-serif text-lg font-medium lg:font-medium mb-6">
                 Stunning beaches, vibrant nightlife, and endless outdoor
                 adventures await. Experience paradise with tax incentives and
                 world-class amenities. Your dream Caribbean escape starts here!
               </p>
-              <p className="hidden lg:block text-blue-900 md:text-2xl leading-loose font-serif text-lg font-semibold">
+              <p className="hidden lg:block text-white md:text-2xl leading-loose font-serif text-lg font-medium">
                 Dive into turquoise waters, unwind on pristine beaches, and
                 explore lush tropical landscapes. With luxurious amenities and
                 exciting cultural experiences, your perfect Caribbean gateway is
@@ -304,7 +306,7 @@ const page = () => {
         </section>
         <section className="flex flex-col justify-center items-center gap-4 lg:gap-10 p-4  mt-6">
           <div
-            className="w-full  h-[50vh] md:h-[58vh] lg:h-[90vh] lg:w-[65vw] overflow-hidden"
+            className="w-full  h-[30vh] md:h-[58vh] lg:h-[90vh] lg:w-[65vw] overflow-hidden"
             id="photos"
           >
             <div className="relative w-full h-full overflow-hidden">
@@ -341,7 +343,7 @@ const page = () => {
           </div>
           <PaymentMethod />
           <div
-            className="w-full  h-[50vh] md:h-[58vh] lg:h-[90vh] lg:w-[65vw] overflow-hidden"
+            className="w-full  h-[30vh] md:h-[58vh] lg:h-[90vh] lg:w-[65vw] overflow-hidden"
             id="photos"
           >
             <SlideShow images={imageSlideShow1} />
@@ -351,7 +353,7 @@ const page = () => {
               src={vistaCana2}
               alt={"vista cana"}
               quality={100}
-              className="lg:w-[65vw] w-[100vw] lg:h-[65vh] h-[52vh] "
+              className="lg:w-[65vw] w-[100vw] lg:h-[65vh]  "
             />
           </div>
           <div className="w-full pt-5" id="form">

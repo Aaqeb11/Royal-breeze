@@ -79,7 +79,7 @@ export const NavBar: React.FC<NavBarProps> = ({ route }) => {
             <li>
               <a
                 href="#payment"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0 text-black hover:bg-gray-700 hover:text-white md:hover:bg-transparent text-lg"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-800 md:p-0 text-black hover:bg-gray-700 hover:text-white md:hover:bg-transparent text-lg "
                 onClick={() => setIsMenuOpen(false)}
               >
                 Payment

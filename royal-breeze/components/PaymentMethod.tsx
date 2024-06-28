@@ -2,7 +2,10 @@ import React from "react";
 
 const PaymentMethod = () => {
   return (
-    <div className="text-center font-sans text-gray-800 p-8" id="payment">
+    <div
+      className="text-center font-sans text-gray-800 p-8 scroll-mt-[68px]"
+      id="payment"
+    >
       <h1 className="text-2xl font-bold mb-4">Starting at</h1>
       <h1 className="text-4xl font-bold mb-6">$275,000</h1>
       <h1 className="text-2xl font-bold mb-4">Payment Method</h1>
