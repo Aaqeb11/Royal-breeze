@@ -21,6 +21,7 @@ import vistaCana from "../assets/vistaCana.jpeg";
 import vistaCana2 from "../assets/vistaCana2.jpeg";
 import floorPlan1 from "../assets/floorPlan1.jpeg";
 import floorPlan2 from "../assets/floorPlan2.jpeg";
+import logoWhite from "../assets/logoWhite.png";
 import interior from "../assets/interior.jpeg";
 import groundBreaking from "../assets/groundBreaking.jpeg";
 import elevation from "../assets/elevation.jpeg";
@@ -36,9 +37,11 @@ import PaymentMethod from "@/components/PaymentMethod";
 import Link from "next/link";
 import SlideShow from "@/components/SlideShow";
 import { SliderS } from "@/components/SliderS";
-import { RxCross1 } from "react-icons/rx";
+import { RxCross1, RxHamburgerMenu } from "react-icons/rx";
+import { useWindowSize } from "@uidotdev/usehooks";
 const page = () => {
   const router = useRouter();
+  const [isBodyLocked, setIsBodyLocked] = useState(false);
   const imageSlideShow1 = [img1, img2, img3, img4];
   const imageSlideShow2 = [image6, image7, image8];
   const imageSlideShow3 = [image9, image10, image11];
@@ -72,9 +75,13 @@ const page = () => {
     }, 4000); // Change image every 4 seconds
     return () => clearInterval(intervalId); // Clean up on component unmount
   }, []);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const size = useWindowSize();
+  useEffect(() => {
+    if (size?.width ?? 0 >= 768) {
+      setIsMenuOpen(false);
+    }
+  }, [size.width]);
+
   var settings = {
     dots: false,
     infinite: true,
@@ -92,14 +99,15 @@ const page = () => {
           background:
             "linear-gradient(132deg, rgba(2,0,36,1) 0%, rgba(3,20,62,1) 0%, rgba(5,68,80,1) 100%)",
         }}
-        className="flex lg:items-center items-start justify-start lg:mt-[90px] h-screen  flex-col  gap-2 p-2"
+        className="flex lg:items-center items-start justify-start  flex-col  gap-2 p-2 min-h-[900px] lg:h-screen"
       >
+        <NavBar />
         <div>
           <p className="lg:text-4xl md:text-5xl text-5xl leading-snug text-white font-serif md:p-10 p-4 lg:text-center">
             Discover Royal Breeze Caribbean Villas
           </p>
         </div>
-        <div className="flex mt-8 lg:mt-2 lg:block border-b-2 border-white w-[90%] mx-auto lg:w-[90%]  h-1 "></div>
+        <div className="flex mt-8 lg:mt-2 lg:block border-b-2 border-white w-[90%] mx-auto lg:w-[80%]  h-1 "></div>
         <div className="flex items-start ">
           <p className="text-white text-lg p-4">
             Invest in luxury from the ground up with our collection of 3
@@ -107,18 +115,8 @@ const page = () => {
             <span className="italic font-semibold"> Punta Cana.</span>
           </p>
         </div>
-
-        <div className="flex justify-center items-center mx-auto lg:w-[60vw] w-[92vw] md:w-[80]  h-[35vh] md:h-[55vh] lg:h-[90vh] overflow-hidden rounded-xl">
-          <video
-            controls
-            autoPlay
-            muted
-            loop
-            playsInline
-            className=" h-full w-full   py-4 rounded-xl "
-          >
-            <source src="/VIDEO_15.mp4" type="video/mp4" />
-          </video>
+        <div className="w-full p-2" id="form">
+          <AppointmentForm />
         </div>
       </div>
       <section className="">
@@ -235,7 +233,7 @@ const page = () => {
                         controlled access, which
                         guarantees maximum security
                         and peace of mind for you
-                        and your family"
+                        and your family."
               icon={<FaShieldAlt />}
             />
 
@@ -270,7 +268,7 @@ const page = () => {
           <div className="flex flex-col lg:w-1/2 justify-center">
             <p className="text-white md:text-2xl p-4 leading-loose font-serif text-lg">
               Luxurious Villa near the heart of the city. Enjoy a unique
-              experience 5 minutes from Downtown and 15 minutes from the
+              experience 5 minutes from downtown and 15 minutes from the
               airport. Great for groups and families looking for comfort and
               elegance.
             </p>

@@ -18,11 +18,11 @@ export const SliderS = () => {
   var settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 250,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 3500,
     cssEase: "linear",
   };
   return (

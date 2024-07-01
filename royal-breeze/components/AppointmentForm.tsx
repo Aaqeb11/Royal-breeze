@@ -23,15 +23,17 @@ function AppointmentForm() {
 
     if (!nameState.trim()) {
       errors.nameState = "Name is required";
-    } else if (nameState.trim().length < 8) {
-      errors.nameState = "Name must be at least 8 characters";
     }
+    // else if (nameState.trim().length < 8) {
+    //   errors.nameState = "Name must be at least 8 characters";
+    // }
 
     if (!numberState.trim()) {
       errors.numberState = "Phone number is required";
-    } else if (numberState.trim().length !== 10) {
-      errors.numberState = "Phone number must be of 10 digits";
     }
+    // else if (numberState.trim().length !== 10) {
+    //   errors.numberState = "Phone number must be of 10 digits";
+    // }
 
     if (!emailState.trim()) {
       errors.emailState = "Email is required";
@@ -70,7 +72,7 @@ function AppointmentForm() {
   return (
     <div className="appointment-form-section ">
       <div className="form-container rounded-xl">
-        <h2 className="form-title">Fill Form Online</h2>
+        <h2 className="form-title">Register Now</h2>
         <form className="form-content " onSubmit={handleSubmit}>
           <label>
             Full Name:
@@ -111,8 +113,11 @@ function AppointmentForm() {
             )}
           </label>
           <br />
-          <button type="submit" className="text-appointment-btn animate-pulse">
-            Confirm Submission
+          <button
+            type="submit"
+            className="bg-[#1a8efd] text-[#0a192f] rounded-3xl px-2 py-1 lg:px-4 lg:py-2 lg:text-xl text-lg border-[1px] border-[#1a8efd] hover:text-[#1a8efd] hover:bg-transparent hover:border-[1px] hover:border-[#1a8efd] animate-pulse"
+          >
+            Confirm
           </button>
           <p
             className="success-message"
